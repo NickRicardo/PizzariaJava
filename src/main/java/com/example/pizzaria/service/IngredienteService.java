@@ -19,7 +19,7 @@ public class IngredienteService {
     private IngredienteRepository ingredienteRepository;
 
     public Ingredientes adicionar(Ingredientes ingredientes) {
-        if (ingredientes.getDateValidade().getTime() < new Date().getTime()) {
+        if (ingredientes.getDataValidade().getTime() < new Date().getTime()) {
             throw new IllegalArgumentException("A data de validade deve ser maior que a data atual");
         }
 

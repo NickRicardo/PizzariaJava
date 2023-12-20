@@ -50,11 +50,11 @@ public class Ingredientes {
         this.descricao = descricao;
     }
 
-    public Date getDateValidade() {
+    public Date getDataValidade() {
         return dataValidade;
     }
 
-    public void setDateValidade(Date dateValidade) {
+    public void setDataValidade(Date dateValidade) {
         this.dataValidade = dateValidade;
     }
 

@@ -8,8 +8,9 @@ Content-Type: application/json
 
 {
     "descricao": "Queijo Mussarela",
+    "quantidade": 250,
     "medida": "GRAMAS",
-    "dataValidade": "2023-12-13T00:00:00",
+    "dataValidade": "2023-12-21T00:00:00",
     "valor": 15.0,
     "observacao": "Queijo presidente."
 }
