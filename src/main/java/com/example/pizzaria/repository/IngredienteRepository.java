@@ -7,4 +7,5 @@ import com.example.pizzaria.model.Ingredientes;
 
 public interface IngredienteRepository extends JpaRepository<Ingredientes, Long> {
     
-}
+    Ingredientes findByDescricao(String descricao);
+} 

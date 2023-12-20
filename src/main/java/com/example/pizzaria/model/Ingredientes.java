@@ -54,8 +54,8 @@ public class Ingredientes {
         return dataValidade;
     }
 
-    public void setDataValidade(Date dateValidade) {
-        this.dataValidade = dateValidade;
+    public void setDataValidade(Date dataValidade) {
+        this.dataValidade = dataValidade;
     }
 
     public Double getValor() {

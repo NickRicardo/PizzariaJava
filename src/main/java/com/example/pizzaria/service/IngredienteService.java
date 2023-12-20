@@ -19,7 +19,10 @@ public class IngredienteService {
     private IngredienteRepository ingredienteRepository;
 
     public Ingredientes adicionar(Ingredientes ingredientes) {
-        if (ingredientes.getDataValidade().getTime() < new Date().getTime()) {
+
+        // ingredientes.setId(0);
+
+        if (ingredientes.getDataValidade().getTime() <= new Date().getTime()) {
             throw new IllegalArgumentException("A data de validade deve ser maior que a data atual");
         }
 
@@ -37,6 +40,28 @@ public class IngredienteService {
             throw new IllegalArgumentException("Não existe um ingrediente com o ID " + id);
         }
         return optIngrediente.get();
+    }
+
+    public Ingredientes atualizar(Long id, Ingredientes ingredientes) {
+
+        if (ingredientes.getDataValidade().getTime() <= new Date().getTime()) {
+            throw new IllegalArgumentException("A data de validade deve ser maior que a data atual");
+        }
+
+        // Aqui o ideal é verficar se o ingrediente existe no banco antes de mandar
+        // atualizar.
+        // Se nao existir mando uma exception que vai precisar chegar no cliente com o
+        // statusCode 404
+        ingredientes.setId(id);
+        return ingredienteRepository.save(ingredientes);
+    }
+
+    public void deletar(Long id) {
+        ingredienteRepository.deleteById(id);
+    }
+
+    public Ingredientes obterPelaDescricao(String descricao) {
+        return ingredienteRepository.findByDescricao(descricao);
     }
 
 }
