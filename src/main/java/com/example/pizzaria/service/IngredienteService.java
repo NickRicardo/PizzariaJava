@@ -1,5 +1,6 @@
 package com.example.pizzaria.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +19,9 @@ public class IngredienteService {
     private IngredienteRepository ingredienteRepository;
 
     public Ingredientes adicionar(Ingredientes ingredientes) {
-        // Aqui poderia verificar muitas coisas.
+        if (ingredientes.getDateValidade().getTime() < new Date().getTime()) {
+            throw new IllegalArgumentException("A data de validade deve ser maior que a data atual");
+        }
 
         return ingredienteRepository.save(ingredientes);
     }
@@ -27,14 +30,13 @@ public class IngredienteService {
         return ingredienteRepository.findAll();
     }
 
-    public Ingredientes obterPorId(long id){
-        Optional <Ingredientes> optIngrediente = ingredienteRepository.findById(id);
+    public Ingredientes obterPorId(long id) {
+        Optional<Ingredientes> optIngrediente = ingredienteRepository.findById(id);
 
-        if(optIngrediente.isEmpty()){
+        if (optIngrediente.isEmpty()) {
             throw new IllegalArgumentException("Não existe um ingrediente com o ID " + id);
         }
         return optIngrediente.get();
     }
-
 
 }
