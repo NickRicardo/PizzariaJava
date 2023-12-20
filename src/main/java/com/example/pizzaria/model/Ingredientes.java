@@ -23,7 +23,7 @@ public class Ingredientes {
     private String descricao;
 
     @Column(nullable = false)
-    private Date dateValidade;
+    private Date dataValidade;
 
     private Double valor;
 
@@ -51,11 +51,11 @@ public class Ingredientes {
     }
 
     public Date getDateValidade() {
-        return dateValidade;
+        return dataValidade;
     }
 
     public void setDateValidade(Date dateValidade) {
-        this.dateValidade = dateValidade;
+        this.dataValidade = dateValidade;
     }
 
     public Double getValor() {

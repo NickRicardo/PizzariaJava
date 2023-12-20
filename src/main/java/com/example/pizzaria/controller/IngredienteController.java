@@ -29,7 +29,6 @@ public class IngredienteController {
     
     @GetMapping("/{id}")
     public Ingredientes obterPorId(@PathVariable Long id){
-
         return IngredienteService.obterPorId(id);
     }
 
